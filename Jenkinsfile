@@ -1,9 +1,9 @@
-bool whateverFunction() {
+def boolean whateverFunction() {
     sh 'ls /'
     return true
 }
 
-def result = false
+def result
 
 pipeline {
   agent any
