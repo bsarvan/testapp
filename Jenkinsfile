@@ -1,5 +1,5 @@
 
-void whateverFunction() {
+def whateverFunction() {
     sh 'ls /'
 }
 
