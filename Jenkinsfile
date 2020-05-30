@@ -1,11 +1,26 @@
 pipeline {
-  agent { docker { image 'python:3.7.2' } }
+  agent any
   stages {
-    stage('build') {
+    stage('prep') {
       steps {
-        sh 'pip install -r requirements.txt'
+        echo "Skipping the prep stage"
       }
     }
+    
+    stage('build') {
+      steps {
+        echo "Cloning the repo"
+        checkout scm   
+        sh "pwd"
+        
+        dir("testapp") {
+          sh "pwd"
+          echo "Starting the app"
+          sh "./app.py"
+        }
+      }
+    }
+    
     stage('test') {
       steps {
         sh 'python test.py'
