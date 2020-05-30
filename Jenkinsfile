@@ -1,4 +1,6 @@
-
+void whateverFunction() {
+    sh 'ls /'
+}
 pipeline {
   agent any
   stages {
@@ -13,7 +15,7 @@ pipeline {
     
     stage('prep') {
       steps {
-        echo "
+        whateverFunction()
         echo "Executing the prep stage"
         sh 'pip3 install -r requirements.txt'
       }
