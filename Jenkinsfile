@@ -1,6 +1,15 @@
 pipeline {
-  agent any
+  agent { dockerfile true }
   stages {
+    
+    stage('clone') {
+      steps {
+        echo "Cloning the repo"
+        checkout scm   
+        sh "pwd"
+      }
+    }
+    
     stage('prep') {
       steps {
         echo "Executing the prep stage"
@@ -9,11 +18,7 @@ pipeline {
     }
     
     stage('build') {
-      steps {
-        echo "Cloning the repo"
-        checkout scm   
-        sh "pwd"
-     
+      steps { 
         echo "Starting the app"
         sh "./app.py"
       
