@@ -13,7 +13,7 @@ pipeline {
     stage('prep') {
       steps {
         echo "Executing the prep stage"
-        sh 'pip install -r requirements.txt'
+        sh 'pip3 install -r requirements.txt'
       }
     }
     
