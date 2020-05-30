@@ -20,7 +20,7 @@ pipeline {
     stage('build') {
       steps { 
         echo "Starting the app"
-        sh "./app.py"
+        sh "./app.py &"
       
       }
     }
