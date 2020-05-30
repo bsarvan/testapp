@@ -12,12 +12,10 @@ pipeline {
         echo "Cloning the repo"
         checkout scm   
         sh "pwd"
-        
-        dir("testapp") {
-          sh "pwd"
-          echo "Starting the app"
-          sh "./app.py"
-        }
+     
+        echo "Starting the app"
+        sh "./app.py"
+      
       }
     }
     
