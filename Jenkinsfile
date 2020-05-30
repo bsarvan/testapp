@@ -19,7 +19,9 @@ pipeline {
     
     stage('prep') {
       steps {
-        result = whateverFunction()
+        script {
+           result = whateverFunction()
+        }
         echo "Printing the result ${result}"  
         echo "Executing the prep stage"
         sh 'pip3 install -r requirements.txt'
