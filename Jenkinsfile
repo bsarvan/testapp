@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('prep') {
       steps {
-        echo "Skipping the prep stage"
+        echo "Executing the prep stage"
+        sh 'pip install -r requirements.txt'
       }
     }
     
