@@ -1,6 +1,8 @@
-void whateverFunction() {
+bool whateverFunction() {
     sh 'ls /'
+    return true
 }
+
 pipeline {
   agent any
   stages {
@@ -15,7 +17,8 @@ pipeline {
     
     stage('prep') {
       steps {
-        whateverFunction()
+        def result = whateverFunction()
+        echo "Printing the result ${result}"  
         echo "Executing the prep stage"
         sh 'pip3 install -r requirements.txt'
       }
