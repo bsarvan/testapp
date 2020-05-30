@@ -3,6 +3,8 @@ bool whateverFunction() {
     return true
 }
 
+def result = false
+
 pipeline {
   agent any
   stages {
@@ -17,7 +19,7 @@ pipeline {
     
     stage('prep') {
       steps {
-        def result = whateverFunction()
+        result = whateverFunction()
         echo "Printing the result ${result}"  
         echo "Executing the prep stage"
         sh 'pip3 install -r requirements.txt'
